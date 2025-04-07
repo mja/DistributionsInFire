@@ -27,3 +27,13 @@ def test_erf_taylor():
   assert_not_equal(erf[erf_taylor[1]](1), erf[erf_taylor[21]](1))
   assert_almost_equal(erf[erf_taylor[20]](1), erf[erf_taylor[21]](1))
 
+def test_erfc_dia():
+  assert_equal(erfc_dia(1), erfc_dia(1))
+  assert_almost_equal(1 - erfc_dia(1), -(1 - erfc_dia(-1)))
+  assert_almost_equal(erfc_dia(1), 0.1572992)
+
+def test_erf_dia():
+  assert_equal(erf_dia(1), erf_dia(1))
+  assert_almost_equal(erf_dia(1), -erf_dia(-1))
+  assert_almost_equal(erf_dia(1), 0.8427008)
+  assert_equal(erf_dia(1), 1 - erfc_dia(1))
