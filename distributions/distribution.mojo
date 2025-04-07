@@ -1,7 +1,7 @@
 
 trait Distribution:
   """
-  Distribution interface
+  Distribution interface.
   """
   fn pdf(self, x: Float64) -> Float64:
     ...

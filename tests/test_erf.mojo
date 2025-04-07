@@ -43,3 +43,9 @@ def test_erf_dia():
   assert_almost_equal(erf_dia(1), -erf_dia(-1))
   assert_almost_equal(erf_dia(1), 0.8427008)
   assert_equal(erf_dia(1), 1 - erfc_dia(1))
+
+def test_erfinv():
+  assert_equal(erfinv(0), 0)
+  assert_almost_equal(erfinv(0.5), 0.4769363, atol = 3.5e-4)
+  assert_almost_equal(erfinv(-0.5), -0.4769363, atol = 3.5e-4)
+  assert_almost_equal(erfinv(0.5), -erfinv(-0.5), atol = 3.5e-4)

@@ -1,4 +1,4 @@
-from math import e, pi, sqrt, factorial
+from math import e, pi, sqrt, factorial, log
 
 # error function
 # https://en.wikipedia.org/wiki/Error_function
@@ -20,7 +20,7 @@ fn erf_taylor[k: Int = 21](x: Float64) -> Float64:
   erfz = 2 / sqrt(pi) * erf_fact
   return(erfz)
 
-# approximatino from Dia 2023
+# approximation from Dia 2023
 # https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487559
 # for x >= 0
 fn erfc_dia_pos(x: Float64) -> Float64:
@@ -50,3 +50,17 @@ fn erfc_dia(x: Float64) -> Float64:
 
 fn erf_dia(x: Float64) -> Float64:
   return(1 - erfc_dia(x))
+
+# sign
+fn sgn(x: Float64) -> Float64:
+  if(x >= 0):
+    return(1)
+  else:
+    return(-1)
+
+# inverse erf
+fn erfinv(x: Float64) -> Float64:
+  var i: Float64
+  var a: Float64 = (8 * (pi - 3)) / (3 * pi * (4 - pi))
+  i = sgn(x) * sqrt(sqrt((2 / (pi * a) + log(1 - x ** 2) / 2) ** 2 - log(1 - x ** 2) / a ) - (2 / (pi * a) + log(1 - x**2)/2))
+  return(i)
