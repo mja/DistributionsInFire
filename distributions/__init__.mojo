@@ -4,3 +4,6 @@ from .utils import (
   erfc_dia,
   erf_dia,
 )
+from .continuous import (
+  Normal
+)
