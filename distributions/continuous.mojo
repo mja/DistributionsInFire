@@ -34,4 +34,9 @@ struct Normal(Distribution):
     var distribution: Float64
     distribution = 1 - self.cdf(q)
     return(distribution)
+
+  fn quantile(self, p: Float64) -> Float64:
+    var q: Float64
+    q = self.mu + self.sigma * sqrt(2.0) * erfinv(2 * p - 1)
+    return(q)
     
