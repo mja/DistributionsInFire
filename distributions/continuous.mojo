@@ -1,8 +1,9 @@
 from math import e, pi, sqrt
+from .distribution import Distribution
 
 # Normal distribution
 @value
-struct Normal:
+struct Normal(Distribution):
   """
   Normal distribution.
   """
