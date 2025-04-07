@@ -22,8 +22,8 @@ def test_erf_table_very_large():
   assert_almost_equal(erf(3.5), 0.999999257)
 
 def test_erf_taylor():
-  assert_equal(erf[1](1), -erf[1](-1))
-  assert_equal(erf[10](1), -erf[10](-1))
-  assert_not_equal(erf[1](1), erf[21](1))
-  assert_almost_equal(erf[20](1), erf[21](1))
+  assert_equal(erf[erf_taylor[1]](1), -erf[erf_taylor[1]](-1))
+  assert_equal(erf[erf_taylor[10]](1), -erf[erf_taylor[10]](-1))
+  assert_not_equal(erf[erf_taylor[1]](1), erf[erf_taylor[21]](1))
+  assert_almost_equal(erf[erf_taylor[20]](1), erf[erf_taylor[21]](1))
 

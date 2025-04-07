@@ -2,7 +2,7 @@ from math import e, pi, sqrt, factorial
 
 # error function
 # https://en.wikipedia.org/wiki/Error_function
-fn erf[k: Int = 21, erfz: fn(Float64) -> Float64 = erf_taylor[k]](x: Float64) -> Float64:
+fn erf[erfz: fn(Float64) -> Float64 = erf_taylor[21]](x: Float64) -> Float64:
   var z: Float64
   if(x >= 0):
     z = erfz(x)
