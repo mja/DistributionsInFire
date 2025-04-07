@@ -14,12 +14,18 @@ def test_erf_table_small():
   assert_almost_equal(erf(0.02),	0.022564575)
   assert_almost_equal(erf(1.0),	0.842700793)
   assert_almost_equal(erf(2), 0.995322265)
+  assert_almost_equal(erf(-0.02),	-0.022564575)
+  assert_almost_equal(erf(-1.0),	-0.842700793)
+  assert_almost_equal(erf(-2), -0.995322265)
+
 
 def test_erf_table_large():
   assert_almost_equal(erf(2.5), 0.999593048)
+  assert_almost_equal(erf(-2.5), -0.999593048)
 
 def test_erf_table_very_large():
   assert_almost_equal(erf(3.5), 0.999999257)
+  assert_almost_equal(erf(-3.5), -0.999999257)
 
 def test_erf_taylor():
   assert_equal(erf[erf_taylor[1]](1), -erf[erf_taylor[1]](-1))
