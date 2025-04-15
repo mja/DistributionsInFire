@@ -27,5 +27,5 @@ def test_normal_cdf():
 def test_normal_quantile():
   normal = Normal(0.0, 1.0)
   assert_equal(normal.quantile(0.5), 0)
-  assert_almost_equal(normal.quantile(0.05), -1.644854, atol = 1e-2)
-  assert_almost_equal(normal.quantile(5e-8), -5.326724, atol = 0.02)
+  assert_almost_equal(normal.quantile(0.05), -1.644854, atol = 1e-6)
+  assert_almost_equal(normal.quantile(5e-8), -5.326724, atol = 1e-6)

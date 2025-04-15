@@ -3,7 +3,7 @@ from .utils import (
   erf_taylor,
   erfc_dia,
   erf_dia,
-  erfinv,
+  erfinv
 )
 from .continuous import (
   Normal

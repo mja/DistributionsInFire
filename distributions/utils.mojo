@@ -58,7 +58,7 @@ fn sgn(x: Float64) -> Float64:
   else:
     return(-1)
 
-# inverse erf
+# inverse erf (Winitzki approximation)
 fn erfinv(x: Float64) -> Float64:
   var i: Float64
   var a: Float64 = (8 * (pi - 3)) / (3 * pi * (4 - pi))
