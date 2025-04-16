@@ -36,3 +36,10 @@ def test_normal_add():
   assert_equal(normal1.mu, 1.0)
   normal2 = 2.0 + normal
   assert_equal(normal2.mu, 2.0)
+
+def test_normal_sub():
+  normal = Normal(0.0, 1.0)
+  normal1 = normal - 1.0
+  assert_equal(normal1.mu, -1.0)
+  normal2 = 2.0 - normal
+  assert_equal(normal2.mu, 2.0)

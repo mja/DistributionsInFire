@@ -44,4 +44,10 @@ struct Normal(Distribution):
     normal = Normal(self.mu + x, self.sigma)
     
   fn __radd__(self, x: Float64, out normal: Normal):
-    normal = Normal(self.mu + x, self.sigma)
+    normal = self + x
+
+  fn __sub__(self, x: Float64, out normal: Normal):
+    normal = self + (-x)
+
+  fn __rsub__(self, x: Float64, out normal: Normal):
+    normal = Normal(x - self.mu, self.sigma)
