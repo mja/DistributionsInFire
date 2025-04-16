@@ -43,3 +43,9 @@ def test_normal_sub():
   assert_equal(normal1.mu, -1.0)
   normal2 = 2.0 - normal
   assert_equal(normal2.mu, 2.0)
+
+def test_normal_mul():
+  normal = Normal(5.0, 2.0)
+  normal10 = normal * 2.0
+  assert_equal(normal10.mu, 10.0)
+  assert_equal(normal10.sigma, 4.0)

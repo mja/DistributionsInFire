@@ -51,3 +51,9 @@ struct Normal(Distribution):
 
   fn __rsub__(self, x: Float64, out normal: Normal):
     normal = Normal(x - self.mu, self.sigma)
+  
+  fn __mul__(self, x: Float64, out normal: Normal):
+    normal = Normal(self.mu * x, self.sigma * x)
+    
+  fn __rmul__(self, x: Float64, out normal: Normal):
+    normal = self * x
