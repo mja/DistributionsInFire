@@ -39,4 +39,9 @@ struct Normal(Distribution):
     var q: Float64
     q = self.mu + self.sigma * sqrt(2.0) * erfinv(2 * p - 1)
     return(q)
+
+  fn __add__(self, x: Float64, out normal: Normal):
+    normal = Normal(self.mu + x, self.sigma)
     
+  fn __radd__(self, x: Float64, out normal: Normal):
+    normal = Normal(self.mu + x, self.sigma)
