@@ -1,4 +1,5 @@
 from distributions import *
+from distributions.continuous.normal import *
 from testing.testing import (
     assert_true,
     assert_almost_equal,

@@ -1,5 +1,5 @@
 from math import e, pi, sqrt
-from .distribution import Distribution
+from distributions.distribution import Distribution
 
 # Normal distribution
 @value

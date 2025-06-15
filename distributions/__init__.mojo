@@ -5,6 +5,6 @@ from .utils import (
   erf_dia,
   erfinv
 )
-from .continuous import (
+from .continuous.normal import (
   Normal
 )
