@@ -9,5 +9,5 @@ To learn Mojo, I'm focusing on implementing functions that I use a lot: statisti
 ## Tests
 
 ```sh
-magic run mojo test -I . tests
+pixi run mojo test -I . tests
 ```
