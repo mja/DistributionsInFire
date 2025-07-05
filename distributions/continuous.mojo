@@ -1,4 +1,4 @@
-from math import e, pi, sqrt
+from math import e, pi, sqrt, erf
 from .distribution import Distribution
 
 # Normal distribution

@@ -1,15 +1,5 @@
 from math import e, pi, sqrt, factorial, log
 
-# error function
-# https://en.wikipedia.org/wiki/Error_function
-fn erf[erfz: fn(Float64) -> Float64 = erf_dia](x: Float64) -> Float64:
-  var z: Float64
-  if(x >= 0):
-    z = erfz(x)
-  else:
-    z = -erfz(-x)
-  return(z);
-
 # error function via parameterised Taylor series expansion
 # https://en.wikipedia.org/wiki/Error_function#Taylor_series
 fn erf_taylor[k: Int = 21](x: Float64) -> Float64:
