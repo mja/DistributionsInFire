@@ -18,4 +18,6 @@ def test_chisq_pdf():
   assert_almost_equal(chisq.pdf(1.0), 0.2419707)
   assert_almost_equal(chisq.pdf(2.0), 0.1037769)
   assert_almost_equal(chisq.pdf(10.0), 0.0008500367)
+  assert_almost_equal(chisq.pdf(0), 0.0)
+  assert_almost_equal(chisq.pdf(-1), 0.0)
   

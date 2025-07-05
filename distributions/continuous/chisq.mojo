@@ -15,7 +15,10 @@ struct ChiSq(Distribution):
     """
 
     var density: Float64
-    density = 1 / (2 ** (self.k/2) * gamma(self.k / 2)) * x ** (self.k / 2 - 1) * e ** (-x/2)
+    if(x > 0):
+      density = 1 / (2 ** (self.k/2) * gamma(self.k / 2)) * x ** (self.k / 2 - 1) * e ** (-x/2)
+    else:
+      density = 0
     return(density)
 
   fn cdf(self, q: Float64) -> Float64:
