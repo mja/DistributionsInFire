@@ -73,7 +73,7 @@ fn ck_series(K: Int) -> List[Float64]:
 
   return(ck_expansion)
 
-fn erfinv_series[K: Int = 300](z: Float64) -> Float64:
+fn erfinv_series[K: Int = 1000](z: Float64) -> Float64:
   var result: Float64
   var ck_expansion: List[Float64]
   ck_expansion = ck_series(K)

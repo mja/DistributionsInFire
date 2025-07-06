@@ -29,6 +29,7 @@ def test_normal_quantile():
   assert_equal(normal.quantile(0.5), 0)
   assert_almost_equal(normal.quantile(0.05), -1.644854, atol = 1e-6)
   assert_almost_equal(normal.quantile(5e-8), -5.326724, atol = 1e-6)
+  assert_almost_equal(normal.quantile(5e-50), -14.82565, atol = 1e-6)
 
 def test_normal_add():
   normal = Normal(0.0, 1.0)
