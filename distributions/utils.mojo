@@ -54,3 +54,22 @@ fn erfinv(x: Float64) -> Float64:
   var a: Float64 = (8 * (pi - 3)) / (3 * pi * (4 - pi))
   i = sgn(x) * sqrt(sqrt((2 / (pi * a) + log(1 - x ** 2) / 2) ** 2 - log(1 - x ** 2) / a ) - (2 / (pi * a) + log(1 - x**2)/2))
   return(i)
+
+# inverse erf series expansion
+# https://en.wikipedia.org/wiki/Error_function#Inverse_functions
+fn ck_series(k: Int) -> Float64:
+  var ck: Float64
+  if(k == 0):
+    ck = 1
+  else:
+    ck = 0
+    for m in range(k):
+      ck += (ck_series(m) * ck_series(k - 1 - m)) / ((m + 1) * (2 * m + 1))
+  return(ck)
+
+fn erfinv_series[K: Int = 21](z: Float64) -> Float64:
+  var result: Float64
+  result = 0.0
+  for k in range(K):
+    result += ck_series(k) / (2.0 * k + 1.0) * (sqrt(pi) / 2.0 * z) ** (2.0 * k + 1.0)
+  return(result)

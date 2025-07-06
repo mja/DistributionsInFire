@@ -50,3 +50,18 @@ def test_erfinv():
   assert_almost_equal(erfinv(0.5), 0.4769363, atol = 3.5e-4)
   assert_almost_equal(erfinv(-0.5), -0.4769363, atol = 3.5e-4)
   assert_almost_equal(erfinv(0.5), -erfinv(-0.5), atol = 3.5e-4)
+
+def test_ck_series():
+  assert_equal(ck_series(0), 1.0)
+  assert_equal(ck_series(1), 1.0)
+  assert_equal(ck_series(2), 7.0/6.0)
+  assert_equal(ck_series(3), 127.0/90.0)
+  assert_equal(ck_series(4), 4369.0/2520.0)
+  assert_equal(ck_series(5), 34807.0/16200.0)
+
+def test_erfinv_series():
+  assert_almost_equal(erfinv_series(0), 0)
+  assert_almost_equal(erfinv_series(0.25), 0.2253121)
+  assert_almost_equal(erfinv_series(0.5), 0.4769363)
+  assert_almost_equal(erfinv_series(0.75), 0.8134198)
+  assert_almost_equal(erfinv_series(0.99), 1.821386)
