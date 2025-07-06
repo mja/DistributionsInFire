@@ -57,19 +57,28 @@ fn erfinv(x: Float64) -> Float64:
 
 # inverse erf series expansion
 # https://en.wikipedia.org/wiki/Error_function#Inverse_functions
-fn ck_series(k: Int) -> Float64:
-  var ck: Float64
-  if(k == 0):
-    ck = 1
-  else:
-    ck = 0
-    for m in range(k):
-      ck += (ck_series(m) * ck_series(k - 1 - m)) / ((m + 1) * (2 * m + 1))
-  return(ck)
 
-fn erfinv_series[K: Int = 21](z: Float64) -> Float64:
+# calculate list of the c_k terms
+fn ck_series(K: Int) -> List[Float64]:
+  var ck_expansion: List[Float64]
+  var ck: Float64
+  ck_expansion = List[Float64](K+1)
+
+  ck_expansion[0] = 1
+  for k in range(1, K+1):
+    ck = 0.0
+    for m in range(k):
+      ck += (ck_expansion[m] * ck_expansion[k - 1 - m]) / ((m + 1) * (2 * m + 1))
+    ck_expansion[k] = ck
+
+  return(ck_expansion)
+
+fn erfinv_series[K: Int = 300](z: Float64) -> Float64:
   var result: Float64
+  var ck_expansion: List[Float64]
+  ck_expansion = ck_series(K)
+
   result = 0.0
   for k in range(K):
-    result += ck_series(k) / (2.0 * k + 1.0) * (sqrt(pi) / 2.0 * z) ** (2.0 * k + 1.0)
+    result += ck_expansion[k] / (2.0 * k + 1.0) * (sqrt(pi) / 2.0 * z) ** (2.0 * k + 1.0)
   return(result)
